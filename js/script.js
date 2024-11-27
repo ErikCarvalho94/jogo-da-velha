@@ -92,9 +92,9 @@ function checkWinCondition() {
       let b6child = b6.childNodes[0].className;
 
       if (b4child == "x" && b5child == "x" && b6child == "x") {
-        declareWinner("x");
+        declareWinner('x')
       } else if (b4child == "o" && b5child == "o" && b6child == "o") {
-        declareWinner("o");
+        declareWinner('o');
       }
     }
 
@@ -220,7 +220,7 @@ function declareWinner(winner){
   if(winner == 'x'){
     scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1
     msg = 'O jogador 1 venceu!'
-  } else if(winner == 'y'){
+  } else if(winner == 'o'){
         scoreboardY.textContent = parseInt(scoreboardY.textContent) + 1;
     msg = "O jogador 2 venceu!";
   } else {
@@ -230,4 +230,9 @@ function declareWinner(winner){
   // exibe mensagem
   messageText.innerHTML = msg
   messageContainer.classList.remove('hide')
+  
+  // esconde msg
+  setTimeout(function(){
+    messageContainer.classList.add('hide')
+  }, 3000)
 }
